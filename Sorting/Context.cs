@@ -1,12 +1,16 @@
 ﻿namespace Sorting
 {
-    public static class Context
+    public class Context
     {
-        private static ISort ContextSort { get; set; }
+        public ISort ContextSort { get; set; }
 
-        public static void ExecuteAlgorithm(ISort _sort, ref int[] array)
+        public Context(ISort _sort)
         {
             ContextSort = _sort;
+        }
+
+        public void ExecuteAlgorithm(ref int[] array)
+        {
             ContextSort.Sort(ref array);
         }
     }
